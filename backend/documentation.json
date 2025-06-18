@@ -1,0 +1,205 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Simple API documentation",
+    "description": "This is a simple API",
+    "contact": {
+      "email": "you@your-company.com"
+    },
+    "license": {
+      "name": "Apache 2.0",
+      "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+    },
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://virtserver.swaggerhub.com/ricaldone-962/AutoEvaluacion/1.0.0",
+      "description": "SwaggerHub API Auto Mocking"
+    }
+  ],
+  "tags": [
+    {
+      "name": "Endpoint de \"task\""
+    }
+  ],
+  "paths": {
+    "/api/task": {
+      "get": {
+        "tags": [
+          "Endpoint de \"task\""
+        ],
+        "summary": "Metodo para ver tareas",
+        "description": "este metodo sirve para extraer las tareas registradas en la base de datos",
+        "operationId": "get-api-task",
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Endpoint de \"task\""
+        ],
+        "summary": "Metodo para actualizar tareas",
+        "description": "este metodo sirve para actualizar los datos de una tarea ya registrada en la base de datos",
+        "operationId": "put-api-task",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/api_task_body"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Endpoint de \"task\""
+        ],
+        "summary": "Metodo para guardar tareas",
+        "description": "este metodo sirve para registrar una tarea en la base de datos",
+        "operationId": "post-api-task",
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/api_task_body_1"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Endpoint de \"task\""
+        ],
+        "summary": "Metodo para eliminar tareas",
+        "description": "este metodo sirve para eliminar una tarea existente de la base de datos",
+        "operationId": "delete-api-task",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "task": {
+        "title": "task",
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string",
+            "x-stoplight": {
+              "id": "4t9seiprn358f"
+            }
+          },
+          "completed": {
+            "type": "boolean",
+            "x-stoplight": {
+              "id": "tgltrr6i07y4k"
+            }
+          }
+        },
+        "description": "este es el modelo de 'task'."
+      },
+      "api_task_body": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string",
+            "x-stoplight": {
+              "id": "5spdwvz7qzjk2"
+            }
+          },
+          "description": {
+            "type": "string",
+            "x-stoplight": {
+              "id": "9sck3v82ethkk"
+            }
+          },
+          "completed": {
+            "type": "boolean",
+            "x-stoplight": {
+              "id": "ztrh6ibxo0dil"
+            }
+          }
+        }
+      },
+      "api_task_body_1": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string",
+            "x-stoplight": {
+              "id": "e1uw7qhzfiipj"
+            }
+          },
+          "description": {
+            "type": "string",
+            "x-stoplight": {
+              "id": "xjwmc1766nanb"
+            }
+          },
+          "completed": {
+            "type": "boolean",
+            "x-stoplight": {
+              "id": "ny0l3huac14p8"
+            }
+          }
+        }
+      }
+    }
+  }
+}
